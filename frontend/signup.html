@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <script src="https://kit.fontawesome.com/f584623432.js" crossorigin="anonymous"></script>
+    <title>Sign Up | Notica</title>
+</head>
+
+<body>
+    <div class="nav">
+        <div id="logo">notica</div>
+        <div id="links">
+            <div><a href="index.html">Home</a></div>
+            <div><a href="note.html">Notes</a></div>
+            <div><a href="about.html">About</a></div>
+            <div><a href="signup.html" style="color: #f67459;">Sign Up</a></div>
+            <div><a href="login.html">Login</a></div>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Register</h2>
+        <form action="">
+            <label for="">Name</label>
+            <input type="text" placeholder="Barry Allen" id="name" required>
+            <label for="">Age</label>
+            <input type="number" placeholder="26" id="age" required>
+            <label for="">Email</label>
+            <input type="email" placeholder="barryallen@gmail.com" id="email" required>
+            <label for="">Password</label>
+            <input type="password" placeholder="password" id="password" required>
+            <button type="submit" id="submit">Sign Up</button>
+            <a href="login.html">Already a user <span><i class="fa-solid fa-arrow-right"></i></span></a>
+        </form>
+    </div>
+</body>
+
+</html>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+
+
+    document.getElementById("submit").addEventListener("click", register);
+
+    function register(event) {
+        event.preventDefault();
+        let name = document.getElementById("name").value;
+        let age = document.getElementById("age").value;
+        let email = document.getElementById("email").value;
+        let pass = document.getElementById("password").value;
+
+        let registerDetails = {
+            name,
+            age,
+            email,
+            pass
+        }
+
+        fetch("http://localhost:3000/users/register", {
+            method: "POST",
+            body: JSON.stringify(registerDetails),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Sign Up Successful',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        setInterval(function () { window.location.href = "./login.html" }, 1500);
+    }
+</script>

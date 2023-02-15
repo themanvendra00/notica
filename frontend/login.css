@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0% 10%;
+}
+
+#logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#links {
+    display: flex;
+    width: 35%;
+    justify-content: space-around;
+}
+
+#links div a {
+    text-decoration: none;
+    color: #000;
+}
+
+#links div a:hover {
+    color: #51c0a6;
+}
+
+.container {
+    width: 500px;
+    margin: 0px auto;
+    transform: translate(0%, 35%);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding: 20px 50px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.container label {
+    display: block;
+    margin: 8px 0;
+}
+
+.container input {
+    width: 95%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid gray;
+    font-size: 16px;
+}
+
+.container input:focus {
+    border: 2px solid #51c0a6;
+    outline: none;
+}
+
+button {
+    padding: 10px 50px;
+    margin: 20px 0;
+    border-radius: 4px;
+    border: none;
+    background: #51c0a6;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #f67459;
+}
+
+.container a {
+    text-decoration: none;
+    position: absolute;
+    right: 55px;
+    bottom: 50px;
+    color: #000;
+}
+
+.container a:hover {
+    color: #f67459;
+}
